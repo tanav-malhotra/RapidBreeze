@@ -2,5 +2,48 @@
 name = "celerity"
 version = "0.1.0"
 edition = "2024"
+authors = ["Tanav Malhotra <tanavm2009@gmail.com>"]
+description = """
+Celerity: The Blazing-Fast File Manager for Windows
+"""
+homepage = "https://github.com/tanav-malhotra/celerity"
+repository = "https://github.com/tanav-malhotra/celerity"
+readme = "README.md"
+license = "GPL-3.0"
+
+[[bin]]
+name = "ironguard"
+path = "src/main.rs"
+bench = false
+test = false
+doc = true
+
+[[test]]
+name = "test"
+path = "tests/tests.rs"
+test = true
+doctest = true
+bench = true
+doc = true
 
 [dependencies]
+
+[dev-dependencies]
+
+[profile.dev]
+opt-level = 0
+debug = true
+overflow-checks = true
+
+[profile.bench]
+opt-level = 3
+debug = false
+overflow-checks = false
+
+[profile.release]
+opt-level = 3
+debug  = false
+lto = true
+panic = "abort"
+overflow-checks = false
+strip = true
